@@ -8,6 +8,12 @@ defmodule SoiledApi.Gis.Soil do
   schema "soils" do
     field :wkb_geometry, Geo.Geometry
     field :parcnum, :string
+    field :mukey, :string
+    field :agval, :float
+    field :flood, :string
+    field :forstgrp, :float
+    field :frostactio, :string
+    field :onsite, :string
   end
 
   @doc false

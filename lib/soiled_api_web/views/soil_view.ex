@@ -3,7 +3,10 @@ defmodule SoiledApiWeb.SoilView do
   alias SoiledApiWeb.SoilView
 
   def render("index.json", %{soils: soils}) do
-    %{data: render_many(soils, SoilView, "soil.json")}
+    %{
+      type: "FeatureCollection",
+      features: render_many(soils, SoilView, "soil.json")
+    }
   end
 
   def render("show.json", %{soil: soil}) do
@@ -11,6 +14,19 @@ defmodule SoiledApiWeb.SoilView do
   end
 
   def render("soil.json", %{soil: soil}) do
-    %{id: soil.id}
+    %{
+      type: "Feature",
+      geometry: Geo.JSON.encode(soil.wkb_geometry),
+      properties: %{
+        id: soil.ogc_fid,
+        parcnum: soil.parcnum,
+        mukey: soil.mukey,
+        agval: soil.agval,
+        flood: soil.flood,
+        forstgrp: soil.forstgrp,
+        frostactio: soil.frostactio,
+        onsite: soil.onsite
+      }
+    }
   end
 end

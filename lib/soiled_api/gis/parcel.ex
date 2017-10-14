@@ -10,7 +10,8 @@ defmodule SoiledApi.Gis.Parcel do
   schema "parcels" do
     field :wkb_geometry, Geo.Geometry
     field :parcnum, :string
-    has_many :soils, Soil, foreign_key: :parcnum
+    field :stnumb, :integer
+    field :stname, :string
   end
 
   @doc false
