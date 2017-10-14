@@ -15,7 +15,8 @@ use Mix.Config
 # which you typically run after static files are built.
 config :soiled_api, SoiledApiWeb.Endpoint,
   load_from_system_env: true,
-  url: [scheme: "https", host: "soiled-api.herokuapp.com", port: System.get_env("PORT")]
+  http: [port: {:system, "PORT"}],
+  url: [scheme: "https", host: "soiled-api.herokuapp.com", port: 443]
 
 # Do not print debug messages in production
 config :logger, level: :info
