@@ -8,6 +8,7 @@ defmodule SoiledApiWeb.Router do
   scope "/api", SoiledApiWeb do
     pipe_through :api
 
-    resources "/features", FeatureController, except: [:new, :edit]
+    resources "/soils", SoilController, only: [:index, :show]
+    resources "/parcels", ParcelController, only: [:index, :show]
   end
 end
