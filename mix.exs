@@ -35,6 +35,7 @@ defmodule SoiledApi.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:csv, "~> 1.2.3"},
+      {:cors_plug, "~> 1.2"},
       {:geo, "~> 2.0"},
       {:gettext, "~> 0.11"},
       {:phoenix_ecto, "~> 3.2"},

@@ -8,7 +8,6 @@ defmodule SoiledApi.Gis do
   alias SoiledApi.Repo
   alias SoiledApi.Gis.Parcel
   alias SoiledApi.Gis.Soil
-  require Logger
 
   @doc """
   Returns the list of soils.
