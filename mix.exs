@@ -35,12 +35,13 @@ defmodule SoiledApi.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:csv, "~> 1.2.3"},
-      {:geo, "~> 1.0"},
+      {:geo, "~> 2.0"},
       {:gettext, "~> 0.11"},
       {:phoenix_ecto, "~> 3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix, "~> 1.3.0"},
       {:postgrex, ">= 0.0.0"},
+      {:geo_postgis, "~> 1.0"},
     ]
   end
 

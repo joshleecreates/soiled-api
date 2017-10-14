@@ -11,8 +11,9 @@ defmodule SoiledApiWeb.FeatureView do
   end
 
   def render("feature.json", %{feature: feature}) do
-    %{id: feature.id,
-      geom: feature.geom,
-      properties: feature.properties}
+    geo = feature.wkb_geometry
+    |> Geo.JSON.encode
+
+    %{id: feature.ogc_fid, data: geo}
   end
 end

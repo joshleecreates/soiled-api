@@ -45,4 +45,5 @@ config :soiled_api, SoiledApi.Repo,
   hostname: "localhost",
   pool_size: 10,
   port: 18000,
-  extensions: [{Geo.PostGIS.Extension, library: Geo}]
+  extensions: [{Geo.PostGIS.Extension, library: Geo}],
+  types: SoiledApi.PostgresTypes

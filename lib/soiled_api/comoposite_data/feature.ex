@@ -3,18 +3,28 @@ defmodule SoiledApi.ComopositeData.Feature do
   import Ecto.Changeset
   alias SoiledApi.ComopositeData.Feature
 
+  @primary_key {:ogc_fid, :id, autogenerate: true}
+  schema "layer_features" do
+    field :wkb_geometry, Geo.Geometry
+    # field :parcel_num, :string
+    # field :p_span, :string
+    # field :proptype, :string
+    # field :town, :string
+    # field :year, :integer
+    # field :fips8, :integer
+    # field :areasymbol, :string
+    # field :spatialver, :integer
+    # field :musym, :string
+    # field :mukey, :string
+    # field :muid, :string
+    # field :mukind, :string
 
-  schema "features" do
-    field :geom, :string
-    field :properties, :map
-
-    timestamps()
   end
 
   @doc false
   def changeset(%Feature{} = feature, attrs) do
     feature
-    |> cast(attrs, [:geom, :properties])
-    |> validate_required([:geom, :properties])
+    |> cast(attrs, [])
+    |> validate_required([])
   end
 end

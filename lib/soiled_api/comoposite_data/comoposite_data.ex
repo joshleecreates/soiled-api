@@ -4,6 +4,8 @@ defmodule SoiledApi.ComopositeData do
   """
 
   import Ecto.Query, warn: false
+  import Geo.PostGIS
+
   alias SoiledApi.Repo
 
   alias SoiledApi.ComopositeData.Feature
@@ -100,5 +102,13 @@ defmodule SoiledApi.ComopositeData do
   """
   def change_feature(%Feature{} = feature) do
     Feature.changeset(feature, %{})
+  end
+
+  def features_at_point(geom) do
+    Repo.all(features_at_point_query(geom))
+  end
+
+  def features_at_point_query(geom) do
+    from feature in Feature, limit: 5, where: st_within(^geom, feature.wkb_geometry)
   end
 end
