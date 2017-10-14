@@ -11,6 +11,9 @@ defmodule SoiledApiWeb.ParcelView do
   end
 
   def render("parcel.json", %{parcel: parcel}) do
-    %{id: parcel.ogc_fid}
+    %{
+      id: parcel.ogc_fid,
+      geometry: Geo.JSON.encode(parcel.wkb_geometry)
+    }
   end
 end
